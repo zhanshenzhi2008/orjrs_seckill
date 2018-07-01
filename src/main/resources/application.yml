@@ -1,0 +1,21 @@
+spring:
+  profiles:
+    active: dev
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    #ssl是一种加密技术在客户端连接数据库的中间做了加密，TCP/IP层中。mysql高版本必须要写
+    url: jdbc:mysql://127.0.0.1:3306/orjrs?useUnicode=true&characterEncoding=utf8&verifyServerCertificate=false&useSSL=false
+    username: root
+    password: mysql15720 #mysql版本号
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update #create create-dorp validate
+      naming:
+        # 物理命名策略，用于转换“逻辑名称”(隐式或显式)的表或列成一个物理名称
+#        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl #物理命名策略:无修改命名
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy #物理命名策略:遇到大写字母 加”_”的命名
+        # 隐式命名策略,使用此属性当我们使用的表或列没有明确指定一个使用的名称
+#        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy #隐式命名策略:遇到大写字母 加”_”的命名
+    database: MYSQL
+debug: true
