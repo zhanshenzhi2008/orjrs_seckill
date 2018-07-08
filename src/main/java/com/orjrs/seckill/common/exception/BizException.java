@@ -1,4 +1,4 @@
-package com.orjrs.seckill.common;
+package com.orjrs.seckill.common.exception;
 
 /**
  * 业务异常
