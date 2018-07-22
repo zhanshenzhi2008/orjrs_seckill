@@ -1,5 +1,6 @@
 package com.orjrs.seckill.common.config.kafka;
 
+import io.confluent.kafka.serializers.KafkaAvroSerializer;
 import lombok.Data;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.IntegerSerializer;
@@ -25,7 +26,7 @@ public class KafkaProducerConfig {
 
     /***
      * kafka生产者工厂
-     * @return ProducerFactory<Integer, String>
+     * @return ProducerFactory<Integer   ,       String>
      */
     @Bean("producerFactory")
     public ProducerFactory<Integer, String> producerFactory() {
@@ -35,7 +36,7 @@ public class KafkaProducerConfig {
     /**
      * kafka生产者属性配置
      *
-     * @return Map<String, Object>
+     * @return Map<String   ,       Object>
      */
     private Map<String, Object> producerConfig() {
         Map<String, Object> props = new HashMap<>();
@@ -44,8 +45,10 @@ public class KafkaProducerConfig {
         props.put(ProducerConfig.BATCH_SIZE_CONFIG, 16384);
         props.put(ProducerConfig.LINGER_MS_CONFIG, 1);
         props.put(ProducerConfig.BUFFER_MEMORY_CONFIG, 33554432);
-        props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, IntegerSerializer.class);
-        props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+//        props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, IntegerSerializer.class);
+//        props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+        props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, KafkaAvroSerializer.class);
+        props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, KafkaAvroSerializer.class);
         return props;
     }
 }
