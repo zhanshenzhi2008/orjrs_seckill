@@ -27,14 +27,14 @@ public class SecKillApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        this.kafkaTemplate.send("myTopic", "foo1");
-        this.kafkaTemplate.send("myTopic", "foo2");
-        this.kafkaTemplate.send("myTopic", "foo3");
+        this.kafkaTemplate.send("test", "foo1");
+        this.kafkaTemplate.send("test", "foo2");
+        this.kafkaTemplate.send("test", "foo3");
         latch.await(60, TimeUnit.SECONDS);
         log.info("All received");
     }
 
-    @KafkaListener(topics = "myTopic")
+    @KafkaListener(topics = {"test"})
     public void listen(ConsumerRecord<?, ?> cr) throws Exception {
         log.info(cr.toString());
         latch.countDown();

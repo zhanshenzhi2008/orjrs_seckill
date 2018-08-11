@@ -20,10 +20,23 @@ spring:
     database: MYSQL
   # kafka配置
   kafka:
+    template:
+      default-topic: test
+    producer:
+      properties:
+        prop:
+          four: fourth
     consumer:
       auto-offset-reset: earliest
-      group-id: seckill
-    template:
-      default-topic: myTopic
-
+      group-id: defaultGroup
+      properties:
+        prop:
+          three: thrid
+    admin:
+      properties:
+        prop:
+          two: second
+    properties:
+      prop:
+        one: first
 debug: false
