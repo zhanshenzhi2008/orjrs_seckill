@@ -26,7 +26,7 @@ public class KafkaProducerConfig {
 
     /***
      * kafka生产者工厂
-     * @return ProducerFactory<Integer               ,               String>
+     * @return ProducerFactory<Integer       , String>
      */
     @Bean("producerFactory")
     public ProducerFactory<Integer, String> producerFactory() {
@@ -36,11 +36,11 @@ public class KafkaProducerConfig {
     /**
      * kafka生产者属性配置
      *
-     * @return Map<String                                                               ,                                                                                                                               Object>
+     * @return Map<String                                                                                                                               ,                                                                                                                                                                                                                                                               Object>
      */
     private Map<String, Object> producerConfig() {
         Map<String, Object> props = new HashMap<>();
-        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "192.168.135.128:9092");
+        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "192.168.135.128:9092");// 原创服务器（虚拟机）一定要开墙即防火墙打开9092端口
         props.put(ProducerConfig.RETRIES_CONFIG, 0);
         props.put(ProducerConfig.BATCH_SIZE_CONFIG, 16384);
         props.put(ProducerConfig.LINGER_MS_CONFIG, 1);

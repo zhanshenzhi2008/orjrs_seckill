@@ -1,6 +1,6 @@
 package com.orjrs.seckill.service.impl;
 
-import com.orjrs.seckill.common.exception.BizException;
+import com.orjrs.seckill.common.BizException;
 import com.orjrs.seckill.repository.SkItemRepository;
 import com.orjrs.seckill.repository.SkProductRepository;
 import com.orjrs.seckill.service.SkProductService;
@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.beans.Transient;
 import java.util.Date;
 
 /**

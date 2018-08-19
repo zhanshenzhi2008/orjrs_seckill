@@ -27,9 +27,9 @@ public class SecKillApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        this.kafkaTemplate.send("test", "foo1");
-        this.kafkaTemplate.send("test", "foo2");
-        this.kafkaTemplate.send("test", "foo3");
+        this.kafkaTemplate.send("test", 1, "foo1");
+        this.kafkaTemplate.send("test", 2, "foo2");
+        this.kafkaTemplate.send("test", 3, "foo3");
         latch.await(60, TimeUnit.SECONDS);
         log.info("All received");
     }
