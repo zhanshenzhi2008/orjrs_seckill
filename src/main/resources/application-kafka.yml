@@ -1,0 +1,22 @@
+spring:
+  # kafka配置
+  kafka:
+    template:
+      default-topic: test
+    producer:
+      properties:
+        prop:
+          four: fourth
+    consumer:
+      auto-offset-reset: earliest
+      group-id: defaultGroup
+      properties:
+        prop:
+          three: thrid
+    admin:
+      properties:
+        prop:
+          two: second
+    properties:
+      prop:
+        one: first

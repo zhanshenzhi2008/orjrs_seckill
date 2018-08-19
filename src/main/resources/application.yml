@@ -18,25 +18,4 @@ spring:
         # 隐式命名策略,使用此属性当我们使用的表或列没有明确指定一个使用的名称
 #        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy #隐式命名策略:遇到大写字母 加”_”的命名
     database: MYSQL
-  # kafka配置
-  kafka:
-    template:
-      default-topic: test
-    producer:
-      properties:
-        prop:
-          four: fourth
-    consumer:
-      auto-offset-reset: earliest
-      group-id: defaultGroup
-      properties:
-        prop:
-          three: thrid
-    admin:
-      properties:
-        prop:
-          two: second
-    properties:
-      prop:
-        one: first
-debug: false
+debug: true
